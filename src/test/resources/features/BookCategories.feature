@@ -30,7 +30,6 @@ Feature: Filtering the books by their categories
       | Poetry                  |
 
 
-
   Scenario Outline: Student selects particular category from the dropdown
   and should see all the books from that category
     Given User logs in as Student
@@ -59,4 +58,18 @@ Feature: Filtering the books by their categories
       | Essay                   |
       | Memoir                  |
       | Poetry                  |
+
+
+  @hello
+  Scenario Outline: Add book with valid info
+    Given librarian on books page and clicks to addBook Button
+    When librarian enter valid info about the book "<BookName>","<ISBN>","<YEAR>","<Author>","<BookCategory>","<Description>"
+    Then the book is displayed on the table
+
+    Examples:
+      | BookName                                  | ISBN   | YEAR | Author           | BookCategory       | Description                                                                                                                                                                                       |
+      | My Sweet Orange tree                      | 111222 | 1968 | Jose Mauro       | Classic            | Truly immortal children's characters are those who transport but also transcend. Not only do they chime with young readers around the world, they continue to strike a chord with us in adulthood |
+      | Uzaklarin Sarkisi                         | 3454   | 2017 | Kaan Murat Yanik | Historical Fiction | Parrots talk, we know that. But do they report? Or do they have talents from the past?                                                                                                            |
+      | Ben Orada Degildim Ustelik Sizde Yoktunuz | 333444 | 2019 | burak aksak      | Humor              | Here you will feel like you are watching Istanbul from the roof of a building, you will want to sit with different characters and have a long conversation while reading                          |
+
 

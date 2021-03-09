@@ -21,7 +21,9 @@ public class Memory {
 
 
     public static void saveValue(String key, String value) {
-        initMemory();
+       if(map==null) {
+           initMemory();
+       }
         map.put(key, value);
     }
 

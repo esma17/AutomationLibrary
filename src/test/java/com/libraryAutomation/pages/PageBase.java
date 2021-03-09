@@ -1,5 +1,6 @@
 package com.libraryAutomation.pages;
 
+import com.libraryAutomation.utilities.BrowserUtils;
 import com.libraryAutomation.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,6 +22,7 @@ public abstract class PageBase extends PageGenerator {
 
 
     public void navigatingThroughNavigationBar(String text) {
+        BrowserUtils.waitForVisibility(navigationBar,20);
         for (WebElement element : navigationBar) {
             if (element.getText().equalsIgnoreCase(text)) {
                 element.click();

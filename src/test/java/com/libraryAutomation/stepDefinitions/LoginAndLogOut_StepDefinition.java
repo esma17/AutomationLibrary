@@ -1,21 +1,19 @@
 package com.libraryAutomation.stepDefinitions;
 
 import com.libraryAutomation.pages.BooksPage;
-import com.libraryAutomation.pages.LandingPage;
+import com.libraryAutomation.pages.DashBoard;
 import com.libraryAutomation.pages.LoginPage;
 import com.libraryAutomation.utilities.BrowserUtils;
-import com.libraryAutomation.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 
 public class LoginAndLogOut_StepDefinition extends WebDriverManager{
 
     LoginPage loginPage = new LoginPage();
     BooksPage booksPage = new BooksPage();
-    LandingPage landing=new LandingPage();
+    DashBoard landing=new DashBoard();
 
     @Given("the user login as a {string}")
     public void theUserLoginAsA(String role) {

@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
-public class LandingPage extends PageBase {
+public class DashBoard extends PageBase {
 
     @FindBy(xpath = "//a[@id='navbarDropdown']/span")
     public WebElement accountUserName;

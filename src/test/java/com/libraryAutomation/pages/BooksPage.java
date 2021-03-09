@@ -32,6 +32,34 @@ public class BooksPage extends PageBase {
     @FindBy(xpath = "//table//tr//td[5]")
     public List<WebElement> listOfSelectedCategories;
 
+    @FindBy(xpath = "//a[contains(@class,'btn btn-lg btn')]")
+    private WebElement buttonAddButton;
+
+    @FindBy(xpath = "//td[3]")
+    private List<WebElement> allBookNames;
+
+    @FindBy(xpath = "//input[@type='search']")
+    private WebElement buttonSearch;
+
+    @FindBy(xpath = "//tbody/tr/td/a")
+   private WebElement firstEditButton;
+
+    public WebElement getFirstEditButton() {
+         BrowserUtils.waitForStaleElement(firstEditButton);
+         return firstEditButton;
+    }
+
+    public WebElement getButtonSearch() {
+        return BrowserUtils.waitForVisibility(buttonSearch,20);
+    }
+
+    public List<WebElement> getAllBookNames() {
+        return BrowserUtils.waitForVisibility(allBookNames,20);
+    }
+
+    public WebElement getButtonAddButton() {
+        return BrowserUtils.waitForVisibility(buttonAddButton,20);
+    }
 
     public List<String> getAllBookCategories() {
         List<String> categoriesText = new ArrayList<>();

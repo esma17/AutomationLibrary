@@ -133,6 +133,8 @@ public class BrowserUtils {
                 }
         }
     }
+
+
     public static WebElement waitUntilCertainTextAppears(WebElement element,String text){
         WebDriverWait wait=new WebDriverWait(Driver.getDriver(),20);
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.textToBePresentInElement(element,text)));
