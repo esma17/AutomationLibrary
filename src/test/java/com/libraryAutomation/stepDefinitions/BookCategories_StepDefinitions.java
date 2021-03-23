@@ -47,7 +47,7 @@ public class BookCategories_StepDefinitions {
         List<WebElement> actual = booksPage.listOfSelectedCategories;
         Set<String> actualText = new LinkedHashSet<>();
         for (WebElement element : actual) {
-            BrowserUtils.waitForVisibility(element,30);
+            BrowserUtils.waitForStaleElement(element);
             actualText.add(element.getText());
         }
         for (String eachLine : actualText) Assert.assertEquals(eachLine, expectedCategory);
