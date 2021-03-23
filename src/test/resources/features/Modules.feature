@@ -1,4 +1,4 @@
-@navigationBar
+@navigationBar @regression
 Feature:
 
   Scenario: Students should have access to 2 modules
