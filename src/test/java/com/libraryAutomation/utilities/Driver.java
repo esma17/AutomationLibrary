@@ -28,7 +28,7 @@ public class Driver {
                         try {
                             DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                             desiredCapabilities.setBrowserName(BrowserType.CHROME);
-                            desiredCapabilities.setCapability("platform", Platform.ANY);
+                            desiredCapabilities.setCapability("platform", Platform.WINDOWS);
                             URL url=new URL("http://34.228.73.245:4444/wd/hub");
                             driverPoll.set(new RemoteWebDriver(url, desiredCapabilities));
                         } catch (Exception e) {

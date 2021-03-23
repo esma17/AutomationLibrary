@@ -81,7 +81,9 @@ public class BooksTable_StepDefinitions {
     public void theBookIsDisplayedOnTheTable() {
         BrowserUtils.waitForInVisibility(addBook.getFormAddBook(), 20);
         addBook.getButtonSearch().sendKeys(Memory.retrieveValue("bookName"));
+        BrowserUtils.waitUntilCertainTextAppears(books.getAllBookNames().get(0),Memory.retrieveValue("bookName"));
         books.getFirstEditButton().click();
+        BrowserUtils.sleep(3);
         Assert.assertTrue(addBook.getInputDescription().getText().contains(Memory.retrieveValue("time")));
         Memory.refresh();
 

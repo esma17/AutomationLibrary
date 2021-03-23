@@ -45,12 +45,12 @@ public class BooksPage extends PageBase {
    private WebElement firstEditButton;
 
     public WebElement getFirstEditButton() {
-         BrowserUtils.waitForStaleElement(firstEditButton);
+         BrowserUtils.fluentWait(firstEditButton,20);
          return firstEditButton;
     }
 
     public WebElement getButtonSearch() {
-        return BrowserUtils.waitForVisibility(buttonSearch,20);
+        return BrowserUtils.waitForClickability(buttonSearch,20);
     }
 
     public List<WebElement> getAllBookNames() {

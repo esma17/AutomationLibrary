@@ -1,6 +1,6 @@
 package com.libraryAutomation.utilities;
 
-import org.junit.Assert;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -89,7 +89,7 @@ public class BrowserUtils {
         FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver())
                 .withTimeout(Duration.ofSeconds(timeinsec))
                 .pollingEvery(Duration.ofSeconds(3))
-                .ignoring(ElementNotInteractableException.class);
+                .ignoring(StaleElementReferenceException.class);
         WebElement element = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
                 return webElement;
