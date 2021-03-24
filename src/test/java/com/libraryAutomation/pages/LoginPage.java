@@ -46,6 +46,14 @@ public class LoginPage extends PageGenerator  {
         signInButton.click();
 
     }
+    public void loginLibrary1(){
+        Driver.getDriver().get(ConfigurationReader.getProperty("library1_url"));
+        String username = ConfigurationReader.getProperty("library1_user");
+        String password = ConfigurationReader.getProperty("library1_password");
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+        signInButton.click();
+    }
 
 
 
