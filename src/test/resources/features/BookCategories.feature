@@ -1,9 +1,9 @@
-@bookCat @regression
+ @regression
 Feature: Filtering the books by their categories
   As a Student, I can filter the books by their categories,
   then I can see all the books from the same category only.
 
-
+  @bookCat
   Scenario: Student should be able to see all categories from Book Categories dropdown
     Given User logs in as Student
     Then Student should see below info in book categories dropdown
@@ -29,7 +29,7 @@ Feature: Filtering the books by their categories
       | Memoir                  |
       | Poetry                  |
 
-
+  @bookCat
   Scenario Outline: Student selects particular category from the dropdown
   and should see all the books from that category
     Given User logs in as Student
