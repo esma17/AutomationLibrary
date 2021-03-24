@@ -1,3 +1,4 @@
+@regression
 Feature: Default values of the table
 
   @table
