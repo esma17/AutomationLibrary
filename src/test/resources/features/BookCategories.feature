@@ -1,4 +1,4 @@
-@bookCat
+@bookCat @regression
 Feature: Filtering the books by their categories
   As a Student, I can filter the books by their categories,
   then I can see all the books from the same category only.
