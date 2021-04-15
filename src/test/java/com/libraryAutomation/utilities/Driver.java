@@ -25,6 +25,17 @@ public class Driver {
             synchronized (Driver.class) {
                 Browser browser = Browser.valueOf(ConfigurationReader.getProperty("browser"));
                 switch (browser) {
+                    case remote:
+                        try {
+                            DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+
+                            desiredCapabilities.setCapability("platform", Platform.ANY);
+                            URL url = new URL("http://192.168.1.52:4444/wd/hub");
+                            driverPoll.set(new RemoteWebDriver(url, desiredCapabilities));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        break;
                     case remote_chrome:
 
                         try {
