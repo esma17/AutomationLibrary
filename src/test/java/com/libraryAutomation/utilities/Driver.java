@@ -28,6 +28,7 @@ public class Driver {
                     case remote:
                         try {
                             DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                            desiredCapabilities.setCapability("browser",BrowserType.class);
 
                             desiredCapabilities.setCapability("platform", Platform.ANY);
                             URL url = new URL("http://192.168.1.52:4444/wd/hub");
