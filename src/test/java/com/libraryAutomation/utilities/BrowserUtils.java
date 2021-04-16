@@ -109,7 +109,7 @@ public class BrowserUtils {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
     }
 
-    public static void waitForStaleElement(WebElement element) {
+    public static WebElement waitForStaleElement(WebElement element) {
         int y = 0;
         while (y <= 15) {
             if (y == 1)
@@ -132,6 +132,7 @@ public class BrowserUtils {
                     }
                 }
         }
+        return element;
     }
 
 

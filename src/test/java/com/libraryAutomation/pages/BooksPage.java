@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class BooksPage extends PageBase {
@@ -54,7 +55,7 @@ public class BooksPage extends PageBase {
     }
 
     public List<WebElement> getAllBookNames() {
-        return BrowserUtils.waitForVisibility(allBookNames,20);
+        return allBookNames;
     }
 
     public WebElement getButtonAddButton() {
@@ -74,5 +75,14 @@ public class BooksPage extends PageBase {
         select.selectByVisibleText(string);
         BrowserUtils.sleep(3);
 
+    }
+
+    public  List<String> convertWebElementToString_andGetText(List<WebElement> elements) {
+        List<String> textsOfWebElement = new LinkedList<>();
+
+        for (WebElement element : elements) {
+            textsOfWebElement.add(BrowserUtils.waitForStaleElement(element).getText());
+        }
+        return textsOfWebElement;
     }
 }

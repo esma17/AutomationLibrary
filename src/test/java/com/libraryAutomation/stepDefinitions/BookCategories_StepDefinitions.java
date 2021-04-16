@@ -3,6 +3,7 @@ package com.libraryAutomation.stepDefinitions;
 import com.libraryAutomation.pages.BooksPage;
 import com.libraryAutomation.pages.LoginPage;
 import com.libraryAutomation.utilities.BrowserUtils;
+import com.libraryAutomation.utilities.DB_Utility;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.eo.Se;
@@ -18,7 +19,7 @@ public class BookCategories_StepDefinitions {
     @Given("User logs in as Student")
     public void user_logs_in_as_student() {
         LoginPage loginPage = new LoginPage();
-        loginPage.loginAsStudent();
+        loginPage.loginAsLibrary();
         booksPage.navigatingThroughNavigationBar("books");
     }
 
@@ -52,6 +53,4 @@ public class BookCategories_StepDefinitions {
         }
         for (String eachLine : actualText) Assert.assertEquals(eachLine, expectedCategory);
     }
-
-
 }

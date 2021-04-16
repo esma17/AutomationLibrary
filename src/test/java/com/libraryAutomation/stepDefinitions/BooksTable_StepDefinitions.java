@@ -4,6 +4,7 @@ import com.libraryAutomation.pages.AddBookPage;
 import com.libraryAutomation.pages.BooksPage;
 import com.libraryAutomation.pages.LoginPage;
 import com.libraryAutomation.utilities.BrowserUtils;
+import com.libraryAutomation.utilities.DB_Utility;
 import com.libraryAutomation.utilities.Driver;
 import com.libraryAutomation.utilities.Memory;
 import io.cucumber.java.en.And;
@@ -11,6 +12,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -56,7 +58,7 @@ public class BooksTable_StepDefinitions {
 
     @Given("librarian on books page and clicks to addBook Button")
     public void librarianOnBooksPageAndClicksToAddBookButton() {
-        loginPage.loginAsLibrary();
+        loginPage.loginLibrary1();
         books.navigatingThroughNavigationBar("Books");
         books.getButtonAddButton().click();
     }
@@ -81,12 +83,27 @@ public class BooksTable_StepDefinitions {
     public void theBookIsDisplayedOnTheTable() {
         BrowserUtils.waitForInVisibility(addBook.getFormAddBook(), 20);
         addBook.getButtonSearch().sendKeys(Memory.retrieveValue("bookName"));
-        BrowserUtils.waitUntilCertainTextAppears(books.getAllBookNames().get(0),Memory.retrieveValue("bookName"));
-        books.getFirstEditButton().click();
-        BrowserUtils.sleep(3);
-        Assert.assertTrue(addBook.getInputDescription().getText().contains(Memory.retrieveValue("time")));
-        Memory.refresh();
+        List<String> actualBooks= books.convertWebElementToString_andGetText(books.getAllBookNames());
+        for (String actualBook : actualBooks) {
+            if (actualBook.equals(Memory.retrieveValue("bookName"))){
+                Assert.assertEquals(actualBook,Memory.retrieveValue("bookName"));
+                break;
+            }
 
+        }
+
+    }
+@Test
+   public void t1(){
+
+  String expectedBookName="Yorgun Demokrat";
+        DB_Utility.createConnection("library1");
+
+        DB_Utility.runQuery("select name from books where name like \'Yorgun Demokrat\'");
+        String actualBookName = DB_Utility.getFirstCellData();
+        Assert.assertEquals(expectedBookName,actualBookName);
+    System.out.println(actualBookName);
+        DB_Utility.destroy();
     }
 
 }
